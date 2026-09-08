@@ -49,7 +49,7 @@ pub mod brotli {
     pub fn encode(bytes: impl AsRef<[u8]>) -> Vec<u8> {
         let mut encoder = BrotliEncoder::new(
             Vec::new(),
-            8 * 1024, // 32 KiB buffer
+            8 * 1024, // 8 KiB buffer
             3,        // BROTLI_PARAM_QUALITY
             22,       // BROTLI_PARAM_LGWIN
         );
@@ -59,7 +59,7 @@ pub mod brotli {
     }
 
     pub fn decode(bytes: impl AsRef<[u8]>) -> Vec<u8> {
-        let mut decoder = BrotliDecoder::new(bytes.as_ref(), 8_096);
+        let mut decoder = BrotliDecoder::new(bytes.as_ref(), 8_192);
         let mut buf = Vec::new();
         decoder.read_to_end(&mut buf).unwrap();
         buf

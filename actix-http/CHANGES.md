@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Fix 8 KiB buffer size typo in Brotli decompressor. [#4226]
+
+[#4226]: https://github.com/actix/actix-web/issues/4226
+
 ## 3.13.3
 
 - Close idle HTTP/1 keep-alive connections during graceful server shutdown and close active connections after their current request finishes.

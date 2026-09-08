@@ -43,7 +43,7 @@ where
         let decoder = match encoding {
             #[cfg(feature = "compress-brotli")]
             ContentEncoding::Brotli => Some(ContentDecoder::Brotli(Box::new(
-                brotli::DecompressorWriter::new(Writer::new(), 8_096),
+                brotli::DecompressorWriter::new(Writer::new(), 8_192),
             ))),
 
             #[cfg(feature = "compress-gzip")]
